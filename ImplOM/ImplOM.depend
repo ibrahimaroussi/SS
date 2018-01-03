@@ -1,0 +1,10 @@
+# depslib dependency file v1.0
+1511793561 source:/Users/macbookpro/Documents/Cours3a/Security System/SS/ImplOM/main.c
+	<stdio.h>
+	<stdlib.h>
+
+1514950640 source:/Users/macbookpro/Documents/Cours3a/SecuritySystem/SS/ImplOM/main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+
