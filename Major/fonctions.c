@@ -1,15 +1,5 @@
 #include <stdio.h>
 
-// #define N   10
-int main(void)
-{
-    int t[] = {1,3,1,3,2,7,7,7,7,7,7,7,7,7,3,3,3,3,3,7,2,3,2,3,7,3,3,3,3,3,4,4,4,4};
-
-printf("taille de tableau est : %d  \n", sizeof(t)/sizeof(int)) ;
-int N = sizeof(t)/sizeof(int) ;
-rendreMajoritaire(t,N) ;
-
-}
 
 int rendreMajoritaire(int t[], int N){
 
@@ -36,4 +26,10 @@ int rendreMajoritaire(int t[], int N){
 
 printf("la valeur majoritaire est : %d", vmax);
      return vmax ;
+}
+
+void afficherTab(char ** tab,int taille){
+    for(int i=0;i<taille-1;i++){
+        printf("%s\n",tab[i]);
+    }
 }
