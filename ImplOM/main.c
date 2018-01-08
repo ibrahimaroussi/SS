@@ -6,11 +6,19 @@
 int main(int argc, char * argv[])
 {
     verifyArgs(argv);
+    
+    //Acquisition de la valeur à transmettre
+    int val=atoi(argv[5]);
+    printf("La valeur est : %d \n",val);
 
     //Acquisition du nombre de processus
     int nbr=atoi(argv[1]);
     printf("Le nombre de process est : %d \n",nbr);
 
+    // Generation du nombre m de traitre : 
+    int nbr_traitor=(nbr-1)/3;
+    printf("le nombre m de traitre est : %d\n",nbr_traitor);
+    
     //Acquisition de l'adresse IP
     printf("L'adresse IP est : %s\n",argv[2]);
 
@@ -28,24 +36,24 @@ int main(int argc, char * argv[])
     //Traitre ?
     if(atoi(argv[4])==0)
     {
-        printf("You are not a traitor\n");
+        printf("vous n'êtes pas un traitre\n");
     }
     else
     {
-        printf("You are a traitor\n");
+        printf("vous êtes un traitre\n");   
     }
 
     //Init Tab IP
-    printf("test avant \n");
-    char * tab_IP[nbr];
-    tab_IP[0]="coucou";
-    printf("le premier element du tableau est : %s \n",tab_IP[0]);
+    char * tab_IP[nbr-1];
     //Generation d'un tableau contenant toutes les adresses IP
-    //generateTab(nbr,argv[2],tab_IP);
+    generateTab(nbr,argv[2],tab_IP);
+    printf("-------------------------\n");
+    printf("affichage du tableau d'adresse IP \n");
+    printf("-------------------------\n");
+    afficherTab(tab_IP,nbr);
 
 
-
-    printf("Bien reçu !\n");
+    printf("Bien recu !\n");
     return 0;
 }
 
@@ -55,24 +63,87 @@ int main(int argc, char * argv[])
 
 void generateTab(int taille, char * ip, char ** newTab){
 
-newTab[0]="coucou";
-printf("dans la fonction : %s\n",newTab[0]);
+char * ip_res=NULL;
+ip_res=malloc(sizeof(char)*15);
+char * ip_tmp=NULL;
+ip_tmp=malloc(sizeof(char)*15);
+
+strcpy(ip_tmp,ip);
+char * ip_split= strtok(ip_tmp,".");
+
+
+strcpy(ip_res,ip_split);
+strcat(ip_res,".");
+
+ip_split= strtok(NULL,".");
+strcat(ip_res,ip_split);
+strcat(ip_res,".");
+
+ip_split= strtok(NULL,".");
+strcat(ip_res,ip_split);
+strcat(ip_res,".");
+
+ip_split= strtok(NULL,".");
+
+int indicVal=0;
+
+for (int i=0;i<taille;i++){
+    
+    char * valeur=NULL;
+    valeur=malloc(sizeof(char)*4);
+    sprintf(valeur, "%d", (i+1)); 
+    if(atoi(valeur)==atoi(ip_split)){
+        indicVal=1;
+    }else{
+        char * ip_tmpFor=NULL;
+        ip_tmpFor=malloc(sizeof(char)*15);
+        strcpy(ip_tmpFor,ip_res);
+        strcat(ip_tmpFor,valeur);
+        
+        if(indicVal==0){
+            newTab[i]=ip_tmpFor;
+        }else{
+            newTab[i-1]=ip_tmpFor;
+        }
+        
+    }
+}
+
 }
 
 void verifyArgs(char * tab[]){
+    
+    char * ip_tmp=NULL;
+    ip_tmp=malloc(sizeof(char)*15);
+
+    strcpy(ip_tmp,tab[2]);
+    char * ip_split= strtok(ip_tmp,".");
+    ip_split= strtok(NULL,".");
+    ip_split= strtok(NULL,".");
+    ip_split= strtok(NULL,".");
 
     if(strcmp(tab[1],"-h") == 0){
-        printf("main.o <Number of process> <IP> <Leader (1 or 0)> <Traitor (1 or 0)>\n");
+        printf("main.o <Number of process> <IP> <Leader (1 or 0)> <Traitor (1 or 0)> <Val seulement si vous êtes leader>\n");
+        printf("Attention la valeur de la partie poste de l'adresse ip ne doit pas exceder celle du nombre de machine\n");
+        printf("Mauvais exemple : main.o 5 192.168.1.6 1 0 15\n");
+        printf("Bon exemple : main.o 5 192.168.1.5 1 0 15\n");
+        printf("Ne rentrez une valeur que si vous êtes un leader\n");
         exit(EXIT_SUCCESS);
     }else{
         if(tab[4]==NULL){
             printf("Il n'y a pas assez d'argument, pour plus d'information utiliser '-h'.\n");
             exit(EXIT_FAILURE);
-        }else if(!(tab[5]==NULL)){
-            printf("Il n'y a trop d'argument, pour plus d'information utiliser '-h'.\n");
+        }else if(!(tab[6]==NULL)){
+            printf("Il y a trop d'argument, pour plus d'information utiliser '-h'.\n");
+            exit(EXIT_FAILURE);
+        }else if((!(tab[5]==NULL))&(atoi(tab[3])!=1)){
+            printf("Il y a trop d'argument et vous n'êtes pas leader, pour plus d'information utiliser '-h'.\n");
             exit(EXIT_FAILURE);
         }else if(!(IsValidIp(tab[2])==1)){
             printf("L'adresse Ip n'est pas valide\n");
+            exit(EXIT_FAILURE);
+        }else if(atoi(ip_split)>atoi(tab[1])){
+            printf("N'oubliez pas, la partie hote de l'adresse ip ne doit pas être supérieure au nombre de machine.");
             exit(EXIT_FAILURE);
         }
     }
@@ -88,8 +159,7 @@ int IsValidIp(char* szIP)
     int byte;
     int iIpLen;
     char dotCount;
-
-
+    
     isValid = 1;
     iIpLen = strlen(szIP);
     dotCount = 0;
@@ -139,4 +209,11 @@ int IsValidIp(char* szIP)
 
     }
     return isValid;
+}
+
+
+void afficherTab(char ** tab,int taille){
+    for(int i=0;i<taille-1;i++){
+        printf("%s\n",tab[i]);
+    }
 }
