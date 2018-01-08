@@ -12,7 +12,7 @@
 int envoi(
 	/*identifiant de la machine serveur*/struct hostent *serveur_host,
 	/* chaine à envoyer */char *msg,
-	/* id du serveur */ char *id_serveur,
+	/* ip du serveur */ char *ip_serveur,
 	/* numéro de port*/ int port) {
 			
 	static struct sockaddr_in addr_serveur; // adresse de la socket coté serveur
@@ -34,7 +34,7 @@ int envoi(
 		exit(1);
 	}
 		
-	serveur_host = gethostbyname(id_serveur); // récupération identifiant du serveur
+	serveur_host = ip_serveur; // récupération ip du serveur (entier octets) 
 	if (serveur_host==NULL) { //Vérification du serveur
 		perror("erreur adresse serveur");
 		exit(1);
