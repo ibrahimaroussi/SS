@@ -12,6 +12,8 @@
             <sourceRootList>
                 <sourceRootElem>../Communication</sourceRootElem>
                 <sourceRootElem>../Major</sourceRootElem>
+                <sourceRootElem>Communication</sourceRootElem>
+                <sourceRootElem>Major</sourceRootElem>
             </sourceRootList>
             <confList>
                 <confElem>

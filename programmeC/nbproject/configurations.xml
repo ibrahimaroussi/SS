@@ -4,7 +4,6 @@
     <logicalFolder name="HeaderFiles"
                    displayName="Header Files"
                    projectFiles="true">
-      <itemPath>../Communication/fonctionsComm.h</itemPath>
       <itemPath>main.h</itemPath>
       <itemPath>checkArgs/verifyArgs.h</itemPath>
     </logicalFolder>
@@ -15,17 +14,31 @@
     <logicalFolder name="SourceFiles"
                    displayName="Source Files"
                    projectFiles="true">
-      <logicalFolder name="Major" displayName="Algo" projectFiles="true">
-        <itemPath>../Major/fonctions.c</itemPath>
-        <itemPath>../Major/fonctions.h</itemPath>
-      </logicalFolder>
       <logicalFolder name="f1" displayName="checkArgs" projectFiles="true">
         <itemPath>checkArgs/verifyArgs.c</itemPath>
       </logicalFolder>
       <logicalFolder name="Communication"
                      displayName="Communication"
                      projectFiles="true">
-        <itemPath>../Communication/fonctionsComm.c</itemPath>
+        <itemPath>Communication/fonctionsComm.c</itemPath>
+        <itemPath>Communication/fonctionsComm.h</itemPath>
+        <itemPath>Communication/serveur.c</itemPath>
+      </logicalFolder>
+      <logicalFolder name="Major" displayName="Major" projectFiles="true">
+        <logicalFolder name="bin" displayName="bin" projectFiles="true">
+          <logicalFolder name="Debug" displayName="Debug" projectFiles="true">
+            <itemPath>Major/bin/Debug/Major.exe</itemPath>
+          </logicalFolder>
+        </logicalFolder>
+        <logicalFolder name="obj" displayName="obj" projectFiles="true">
+          <logicalFolder name="Debug" displayName="Debug" projectFiles="true">
+          </logicalFolder>
+        </logicalFolder>
+        <itemPath>Major/Major.cbp</itemPath>
+        <itemPath>Major/Major.layout</itemPath>
+        <itemPath>Major/fonctions.c</itemPath>
+        <itemPath>Major/fonctions.h</itemPath>
+        <itemPath>Major/main.exe</itemPath>
       </logicalFolder>
       <itemPath>main.c</itemPath>
     </logicalFolder>
@@ -44,6 +57,8 @@
   <sourceRootList>
     <Elem>../Communication</Elem>
     <Elem>../Major</Elem>
+    <Elem>Communication</Elem>
+    <Elem>Major</Elem>
   </sourceRootList>
   <projectmakefile>Makefile</projectmakefile>
   <confs>
@@ -67,13 +82,23 @@
           </linkerDynSerch>
         </linkerTool>
       </compileType>
-      <item path="../Communication/fonctionsComm.c" ex="false" tool="0" flavor2="0">
+      <item path="Communication/fonctionsComm.c" ex="false" tool="0" flavor2="0">
       </item>
-      <item path="../Communication/fonctionsComm.h" ex="false" tool="3" flavor2="0">
+      <item path="Communication/fonctionsComm.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="../Major/fonctions.c" ex="false" tool="0" flavor2="0">
+      <item path="Communication/serveur.c" ex="false" tool="0" flavor2="0">
       </item>
-      <item path="../Major/fonctions.h" ex="false" tool="3" flavor2="0">
+      <item path="Major/Major.cbp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Major/Major.layout" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Major/bin/Debug/Major.exe" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Major/fonctions.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="Major/fonctions.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Major/main.exe" ex="false" tool="3" flavor2="0">
       </item>
       <item path="checkArgs/verifyArgs.c" ex="false" tool="0" flavor2="0">
       </item>
@@ -125,13 +150,23 @@
           </linkerDynSerch>
         </linkerTool>
       </compileType>
-      <item path="../Communication/fonctionsComm.c" ex="false" tool="0" flavor2="0">
+      <item path="Communication/fonctionsComm.c" ex="false" tool="0" flavor2="0">
       </item>
-      <item path="../Communication/fonctionsComm.h" ex="false" tool="3" flavor2="0">
+      <item path="Communication/fonctionsComm.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="../Major/fonctions.c" ex="false" tool="0" flavor2="0">
+      <item path="Communication/serveur.c" ex="false" tool="0" flavor2="0">
       </item>
-      <item path="../Major/fonctions.h" ex="false" tool="3" flavor2="0">
+      <item path="Major/Major.cbp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Major/Major.layout" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Major/bin/Debug/Major.exe" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Major/fonctions.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="Major/fonctions.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Major/main.exe" ex="false" tool="3" flavor2="0">
       </item>
       <item path="checkArgs/verifyArgs.c" ex="false" tool="0" flavor2="0">
       </item>

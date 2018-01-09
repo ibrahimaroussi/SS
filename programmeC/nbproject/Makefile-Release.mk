@@ -35,8 +35,9 @@ OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
 
 # Object Files
 OBJECTFILES= \
-	${OBJECTDIR}/_ext/1744f9a7/fonctionsComm.o \
-	${OBJECTDIR}/_ext/8073408a/fonctions.o \
+	${OBJECTDIR}/Communication/fonctionsComm.o \
+	${OBJECTDIR}/Communication/serveur.o \
+	${OBJECTDIR}/Major/fonctions.o \
 	${OBJECTDIR}/checkArgs/verifyArgs.o \
 	${OBJECTDIR}/main.o
 
@@ -65,15 +66,20 @@ ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/programmec: ${OBJECTFILES}
 	${MKDIR} -p ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}
 	${LINK.c} -o ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/programmec ${OBJECTFILES} ${LDLIBSOPTIONS}
 
-${OBJECTDIR}/_ext/1744f9a7/fonctionsComm.o: ../Communication/fonctionsComm.c
-	${MKDIR} -p ${OBJECTDIR}/_ext/1744f9a7
+${OBJECTDIR}/Communication/fonctionsComm.o: Communication/fonctionsComm.c
+	${MKDIR} -p ${OBJECTDIR}/Communication
 	${RM} "$@.d"
-	$(COMPILE.c) -O2 -std=c99 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/1744f9a7/fonctionsComm.o ../Communication/fonctionsComm.c
+	$(COMPILE.c) -O2 -std=c99 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Communication/fonctionsComm.o Communication/fonctionsComm.c
 
-${OBJECTDIR}/_ext/8073408a/fonctions.o: ../Major/fonctions.c
-	${MKDIR} -p ${OBJECTDIR}/_ext/8073408a
+${OBJECTDIR}/Communication/serveur.o: Communication/serveur.c
+	${MKDIR} -p ${OBJECTDIR}/Communication
 	${RM} "$@.d"
-	$(COMPILE.c) -O2 -std=c99 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/8073408a/fonctions.o ../Major/fonctions.c
+	$(COMPILE.c) -O2 -std=c99 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Communication/serveur.o Communication/serveur.c
+
+${OBJECTDIR}/Major/fonctions.o: Major/fonctions.c
+	${MKDIR} -p ${OBJECTDIR}/Major
+	${RM} "$@.d"
+	$(COMPILE.c) -O2 -std=c99 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Major/fonctions.o Major/fonctions.c
 
 ${OBJECTDIR}/checkArgs/verifyArgs.o: checkArgs/verifyArgs.c
 	${MKDIR} -p ${OBJECTDIR}/checkArgs

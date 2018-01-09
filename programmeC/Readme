@@ -1,0 +1,22 @@
+Projet : Security System
+
+Objectif : implémenter un consensus en algo distribué sans protocole cryptographique.
+
+Architecture :
+Trois modules et un main, le module de communication permettant d'envoyer et de recevoir des messages, le module de vérification
+des arguments et enfin le module contenant toutes les fonctions incluant l'algorithme OM.
+
+Le main contient 5 arguments :
+- nombre de participants
+- adresse Ip du poste
+- booléen indiquant si on est leader
+- booléen indiquant si l'on est un traitre
+- Valeur du consensus (utilisable unniquement si on est leader)
+
+Etat du projet :
+
+Clairement le projet n'est pas terminé et ne peux donc pas être exécuté. La compilation ne fonctionne pas et le projet a été crée
+via netbeans sous mac. Si vous souhaitez regarder l'algorithme principalement, il se trouve dans :
+./major/fonctions.c
+
+La partie modelisant un comportement de traitre (envoi de fausse valeurs) n'a pas été implémenté.

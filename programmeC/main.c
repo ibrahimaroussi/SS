@@ -3,7 +3,7 @@
 #include <string.h>
 #include "main.h"
 #include "./checkArgs/verifyArgs.h"
-#include "../Major/fonctions.h"
+#include "./Major/fonctions.h"
 
 int main(int argc, char * argv[])
 {
