@@ -20,6 +20,9 @@ extern "C" {
 
 void afficherTab(char ** tab,int taille);
 int rendreMajoritaire(int t[], int N);
+int OM(int m,char * leader,int val, char ** listeProc);
+ void getIpAddr(char IPAddr[16]);
+ void delElement(char ** tab,char * element);
 
 #ifdef __cplusplus
 }

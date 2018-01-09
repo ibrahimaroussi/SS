@@ -2,7 +2,6 @@
 #include <stdlib.h>
 #include <string.h>
 #include "main.h"
-#include "../Communication/fonctionsComm.h"
 #include "./checkArgs/verifyArgs.h"
 #include "../Major/fonctions.h"
 
@@ -26,6 +25,7 @@ int main(int argc, char * argv[])
     printf("L'adresse IP est : %s\n",argv[2]);
 
     //Leader
+    char * leader[16];
     if(atoi(argv[3])==0)
     {
         printf("You are not a leader\n");
@@ -54,10 +54,17 @@ int main(int argc, char * argv[])
     printf("affichage du tableau d'adresse IP \n");
     printf("-------------------------\n");
     afficherTab(tab_IP,nbr);
-
     
-    printf("Bien recu !\n");
-    return 0;
+    printf("Obtention IP\n");
+    char * IPAddr[16];
+    IPAddr[0]=0;
+    getIpAddr(IPAddr);
+    
+    int valeur_finale;
+    valeur_finale=OM(nbr_traitor,leader,val, tab_IP,IPAddr);
+    
+
+    return valeur_finale;
 }
 
 

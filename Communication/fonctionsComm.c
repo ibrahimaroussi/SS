@@ -68,8 +68,7 @@ int envoi(
 	close(sock);	// on ferme la socket
 }
 
-int reception(
-	/* identifiant du client */ struct hostent *host_client,
+char * reception(
 	/* numéro de port*/ int port,
 	/* timeout */  int timeout) {
 
@@ -121,8 +120,7 @@ int reception(
 	}
 	*
 		// affichage message reçu et coordonnées émetteur
-	chaine = (char *)malloc(nb_octets * sizeof(char));
-	memcpy(chaine, buffer, nb_octets);
+	
 	printf("recu message %s de la part de %s sur le port %d\n", chaine, host_client->h_name,ntohs(addr_client.sin_port));
 		// envoi de la réponse à l'émetteur
 	nb_octets = sendto(sock, reponse, strlen(reponse)+1,0,(struct sockaddr*)&addr_client, lg);
@@ -131,6 +129,10 @@ int reception(
 		exit(1);
 	}
 	*/
-
+        chaine = (char *)malloc(nb_octets * sizeof(char));
+	memcpy(chaine, buffer, nb_octets);
+        
+        
 	close(sock); 	// fermeture la socket
+        return chaine;
 }

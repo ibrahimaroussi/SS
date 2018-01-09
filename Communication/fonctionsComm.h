@@ -18,7 +18,7 @@ extern "C" {
 #endif
 
 int envoi( struct hostent *serveur_host,char *msg,char *ip_serveur,int port);
-int reception(struct hostent *host_client,int port,int timeout);
+int reception(int port,int timeout);
 
 
 #ifdef __cplusplus

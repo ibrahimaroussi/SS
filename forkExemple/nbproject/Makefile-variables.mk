@@ -7,13 +7,13 @@ CND_BASEDIR=`pwd`
 CND_BUILDDIR=build
 CND_DISTDIR=dist
 # Debug configuration
-CND_PLATFORM_Debug=Cygwin-Windows
-CND_ARTIFACT_DIR_Debug=dist/Debug/Cygwin-Windows
-CND_ARTIFACT_NAME_Debug=fork
-CND_ARTIFACT_PATH_Debug=dist/Debug/Cygwin-Windows/fork
-CND_PACKAGE_DIR_Debug=dist/Debug/Cygwin-Windows/package
-CND_PACKAGE_NAME_Debug=fork.tar
-CND_PACKAGE_PATH_Debug=dist/Debug/Cygwin-Windows/package/fork.tar
+CND_PLATFORM_Debug=GNU-MacOSX
+CND_ARTIFACT_DIR_Debug=dist/Debug/GNU-MacOSX
+CND_ARTIFACT_NAME_Debug=forkexemple
+CND_ARTIFACT_PATH_Debug=dist/Debug/GNU-MacOSX/forkexemple
+CND_PACKAGE_DIR_Debug=dist/Debug/GNU-MacOSX/package
+CND_PACKAGE_NAME_Debug=forkexemple.tar
+CND_PACKAGE_PATH_Debug=dist/Debug/GNU-MacOSX/package/forkexemple.tar
 # Release configuration
 CND_PLATFORM_Release=Cygwin-Windows
 CND_ARTIFACT_DIR_Release=dist/Release/Cygwin-Windows
